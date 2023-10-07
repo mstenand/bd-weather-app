@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { StoreModule } from '@ngrx/store';
+import { AppRoutingModule } from './app-routing.module';
+
+import { appReducer } from './store/app.reducer';
+import { locationFeature } from './store/location/location.reducer';
+
+import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { OverviewComponent } from './overview/overview.component';
 import { GraphComponent } from './graph/graph.component';
@@ -24,7 +27,8 @@ import { WeeklyComponent } from './weekly/weekly.component';
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    StoreModule.forRoot({}, {})
+    StoreModule.forRoot(appReducer),
+    StoreModule.forFeature(locationFeature)
   ],
   providers: [],
   bootstrap: [AppComponent]
