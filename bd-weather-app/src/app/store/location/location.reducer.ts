@@ -1,12 +1,12 @@
 import { createFeature, createReducer } from "@ngrx/store";
 
-export interface State {
-    altitude: number;
+interface State {
+    altitude: number | undefined;
     latitude: number;
     longitude: number;
 }
 
-export const initialState: State = {
+const initialState: State = {
     altitude: 13,
     latitude: 56.1518,
     longitude: 10.2064
