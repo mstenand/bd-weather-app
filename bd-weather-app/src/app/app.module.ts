@@ -12,11 +12,11 @@ import { locationFeature } from './store/location/location.reducer';
 import { AppEffects } from './store/app.effects';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { OverviewComponent } from './overview/overview.component';
-import { GraphComponent } from './graph/graph.component';
-import { DailyComponent } from './daily/daily.component';
-import { WeeklyComponent } from './weekly/weekly.component';
+import { HeaderComponent } from './components/header/header.component';
+import { OverviewComponent } from './components/overview/overview.component';
+import { GraphComponent } from './components/graph/graph.component';
+import { DailyComponent } from './components/daily/daily.component';
+import { WeeklyComponent } from './components/weekly/weekly.component';
 
 @NgModule({
   declarations: [
