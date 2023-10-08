@@ -1,1 +1,18 @@
-<p>overview works!</p>
+<diV class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <h1>{{currentDate | date : 'HH:mm'}}</h1>
+            <h3>{{currentDate | date : 'EEEE, d. MMMM y'}}</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <h1 style="font-size: 1000%;">{{temperature$ | async}}&deg;</h1>
+        </div>
+        <div class="col">
+            <h5>Precipitation: {{precipitation$ | async}} mm</h5>
+            <h5>Humidity: {{humidity$ | async}} &percnt;</h5>
+            <h5>Wind Speed: {{windSpeed$ | async}} m/s</h5>
+        </div>
+    </div>
+</diV>
