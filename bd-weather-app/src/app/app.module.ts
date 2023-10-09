@@ -1,4 +1,4 @@
-import { LOCALE_ID, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { StoreModule } from '@ngrx/store';
@@ -15,8 +15,8 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { OverviewComponent } from './components/overview/overview.component';
 import { GraphComponent } from './components/graph/graph.component';
-import { DailyComponent } from './components/daily/daily.component';
 import { WeeklyComponent } from './components/weekly/weekly.component';
+import { HourlyComponent } from './components/hourly/hourly.component';
 
 @NgModule({
   declarations: [
@@ -24,8 +24,8 @@ import { WeeklyComponent } from './components/weekly/weekly.component';
     HeaderComponent,
     OverviewComponent,
     GraphComponent,
-    DailyComponent,
-    WeeklyComponent
+    WeeklyComponent,
+    HourlyComponent
   ],
   imports: [
     BrowserModule,

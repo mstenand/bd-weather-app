@@ -12,6 +12,14 @@ const initialState: State = {
     isLoaded: false
 };
 
+export interface WeeklyForecastData {
+    day: number;
+    temperature: number;
+    precipitation: number;
+    humidity: number;
+    windSpeed: number;
+}
+
 export const forecastFeature = createFeature({
     name: 'forecast',
     reducer: createReducer(

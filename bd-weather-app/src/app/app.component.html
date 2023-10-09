@@ -1,18 +1,22 @@
 <div class="app-container vw-100 vh-100 bg-dark text-light">
-    <div class="container-fluid h-100">
-        <div class="row">
+    <div class="container-fluid h-100 d-flex flex-column">
+        <div class="row bg-primary">
             <div class="col">
-                <app-header></app-header>
+                <app-header [title]="title"></app-header>
             </div>
         </div>
-        <div class="row">
-            <div class="col">
-                <app-overview></app-overview>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <app-daily></app-daily>
+        <div class="row flex-grow-1" style="min-height: 0px;">
+            <div class="col d-flex flex-column justify-content-evenly align-items-center">
+                <div class="row">
+                    <div class="col">
+                        <app-overview></app-overview>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <app-weekly></app-weekly>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

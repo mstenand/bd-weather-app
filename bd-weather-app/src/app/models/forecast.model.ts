@@ -30,10 +30,10 @@ export class Forecast {
         public readonly hourlyPrecipipation: HourlyPoint[],
         public readonly hourlyHumidity: HourlyPoint[],
         public readonly hourlyWindSpeed: HourlyPoint[],
-        public readonly dailyTemperature: DailyPoint[],
-        public readonly dailyPrecipitation: DailyPoint[],
-        public readonly dailyHumidity: DailyPoint[],
-        public readonly dailyWindSpeed: DailyPoint[]
+        public readonly weeklyTemperature: DailyPoint[],
+        public readonly weeklyPrecipitation: DailyPoint[],
+        public readonly weeklyHumidity: DailyPoint[],
+        public readonly weeklyWindSpeed: DailyPoint[]
     ) { }
 
     static adaptFromYrResponse(response: GetCompactResponse): Forecast {
@@ -82,11 +82,11 @@ export class Forecast {
         const maxDate: Date = new Date(initialDate)
         maxDate.setDate(maxDate.getDate() + 7);
         maxDate.setHours(0, 0, 0, 0);
-        const maxDailyIndex = response.properties.timeseries
+        const maxWeeklyIndex = response.properties.timeseries
             .filter(timeData => new Date(timeData.time) < maxDate)
             .length;
 
-        const dailyTemperature: DailyPoint[] = response.properties.timeseries.slice(0, maxDailyIndex)
+        const weeklyTemperature: DailyPoint[] = response.properties.timeseries.slice(0, maxWeeklyIndex)
             .reduce<{ day: number, accumulatedValue: number, count: number }[]>(
                 (
                     accumulator,
@@ -122,7 +122,7 @@ export class Forecast {
                 }, []
             )
         
-        const dailyPrecipitation: DailyPoint[] = response.properties.timeseries.slice(0, maxDailyIndex)
+        const weeklyPrecipitation: DailyPoint[] = response.properties.timeseries.slice(0, maxWeeklyIndex)
             .reduce<{ day: number, accumulatedValue: number, count: number }[]>(
                 (
                     accumulator,
@@ -158,7 +158,7 @@ export class Forecast {
                 }, []
             )
 
-        const dailyHumidity: DailyPoint[] = response.properties.timeseries.slice(0, maxDailyIndex)
+        const weeklyHumidity: DailyPoint[] = response.properties.timeseries.slice(0, maxWeeklyIndex)
             .reduce<{ day: number, accumulatedValue: number, count: number }[]>(
                 (
                     accumulator,
@@ -194,7 +194,7 @@ export class Forecast {
                 }, []
             )
 
-        const dailyWindSpeed: DailyPoint[] = response.properties.timeseries.slice(0, maxDailyIndex)
+        const weeklyWindSpeed: DailyPoint[] = response.properties.timeseries.slice(0, maxWeeklyIndex)
             .reduce<{ day: number, accumulatedValue: number, count: number }[]>(
                 (
                     accumulator,
@@ -239,10 +239,10 @@ export class Forecast {
             hourlyPrecipipation,
             hourlyHumidity, 
             hourlyWindSpeed,
-            dailyTemperature,
-            dailyPrecipitation,
-            dailyHumidity,
-            dailyWindSpeed
+            weeklyTemperature,
+            weeklyPrecipitation,
+            weeklyHumidity,
+            weeklyWindSpeed
         );
     } 
 }
