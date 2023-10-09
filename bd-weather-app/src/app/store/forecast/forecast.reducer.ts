@@ -4,11 +4,21 @@ import { ForecastActions } from "./forecast.actions";
 
 interface State {
     forecast: Forecast | undefined;
+    isLoaded: boolean;
 }
 
 const initialState: State = {
-    forecast: undefined
+    forecast: undefined,
+    isLoaded: false
 };
+
+export interface WeeklyForecastData {
+    day: number;
+    temperature: number;
+    precipitation: number;
+    humidity: number;
+    windSpeed: number;
+}
 
 export const forecastFeature = createFeature({
     name: 'forecast',
@@ -17,12 +27,14 @@ export const forecastFeature = createFeature({
 
         on(ForecastActions.getYrForecastRequestSucces, (state, { forecast }) => ({
             ...state,
-            forecast
+            forecast,
+            isLoaded: true
         })),
 
         on(ForecastActions.getYrForecastRequestError, (state) => ({
             ...state,
-            forecast: undefined
+            forecast: undefined,
+            isLoaded: false
         }))
     )
 });

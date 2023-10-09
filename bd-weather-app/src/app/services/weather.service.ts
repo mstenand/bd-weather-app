@@ -3,7 +3,7 @@ import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http'
 import { catchError, map, Observable, throwError } from 'rxjs';
 import { GetCompactResponse } from './responses/yr.response';
 import { Forecast } from '../models/forecast.model';
-import { GetCompactRequest } from './request/yr.request';
+import { GetCompactRequest } from './requests/yr.request';
 
 @Injectable({
   providedIn: 'root'

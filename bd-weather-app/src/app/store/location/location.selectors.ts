@@ -1,4 +1,3 @@
-import { createSelector } from "@ngrx/store";
 import { locationFeature } from "./location.reducer";
 
 const {

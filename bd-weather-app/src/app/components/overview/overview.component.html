@@ -1,0 +1,18 @@
+<diV class="container-fluid">
+    <div class="row justify-content-center align-items-center">
+        <div class="col d-flex flex-column justify-content-center align-items-center">
+            <h1>{{currentDate | date : 'HH:mm'}}</h1>
+            <h3>{{currentDate | date : 'EEEE, d. MMMM y'}}</h3>
+        </div>
+    </div>
+    <div class="row justify-content-center align-items-center">
+        <div class="col d-flex flex-column justify-content-center align-items-center">
+            <h1 style="font-size: 1000%;">{{temperature$ | async}}&deg;</h1>
+        </div>
+        <div class="col d-flex-column justify-content-center align-items-center text-center">
+            <h5>Precipitation: {{precipitation$ | async}} mm</h5>
+            <h5>Humidity: {{humidity$ | async}} &percnt;</h5>
+            <h5>Wind Speed: {{windSpeed$ | async}} m/s</h5>
+        </div>
+    </div>
+</diV>

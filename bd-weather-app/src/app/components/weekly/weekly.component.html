@@ -1,0 +1,7 @@
+<div class="container-fluid">
+    <div *ngFor="let data of weeklyForecastData$ | async" class="row justify-content-center align-items-center">
+        <div class="col d-flex-column justify-content-center align-items-center text-center">
+            <p>{{weekDays[data.day]}}, Temperature: {{data.temperature.toFixed(2)}}&deg;, Precipitation: {{data.precipitation.toFixed(2)}} mm, Humidity: {{data.humidity.toFixed(2)}} &percnt;, Wind Speed: {{data.windSpeed.toFixed(2)}} m/s</p>
+        </div>
+    </div>
+</div>
